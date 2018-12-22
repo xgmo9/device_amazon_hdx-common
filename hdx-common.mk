@@ -116,7 +116,7 @@ PRODUCT_COPY_FILES += \
 
 # IRSC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/etc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+    $(LOCAL_PATH)/configs/etc/sec_config:system/etc/sec_config
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -149,7 +149,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/etc/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/configs/etc/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
 
 # USB
 PRODUCT_PACKAGES += \
