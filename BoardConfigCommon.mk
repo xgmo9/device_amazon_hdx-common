@@ -46,6 +46,13 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 # Flags
 BOARD_NO_SECURE_DISCARD := true
 
+# Shims
+LINKER_FORCED_SHIM_LIBS := \
+    /system/lib/libbinder.so|libshim_libbinder.so \
+    /system/lib/liblog.so|libshim_liblog.so \
+    /system/lib/libcutils.so|libshim_liblog.so \
+    /system/vendor/lib/libwvm.so|libshim_libwvm.so
+
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_QCOM_BSP := true
