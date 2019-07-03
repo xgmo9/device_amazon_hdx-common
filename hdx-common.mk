@@ -186,7 +186,8 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
 	libshim_libbinder \
 	libshim_liblog \
-	libshim_libwvm
+	libshim_libwvm \
+	libshim_libcrypto
 
 # QC Perf
 ADDITIONAL_BUILD_PROPERTIES += \
