@@ -15,39 +15,28 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := shim_binder_abi_fix.cpp
-
 LOCAL_SHARED_LIBRARIES := libbinder
-
 LOCAL_MODULE := libshim_libbinder
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-
 include $(BUILD_SHARED_LIBRARY)
 
+
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := shim_liblog_logd_write.c
-
 LOCAL_SHARED_LIBRARIES := liblog
-
 LOCAL_MODULE := libshim_liblog
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-
 include $(BUILD_SHARED_LIBRARY)
 
+
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := shim_libwvm.c
-
 LOCAL_SHARED_LIBRARIES := libstagefright_foundation
-
 LOCAL_MODULE := libshim_libwvm
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-
 LOCAL_32_BIT_ONLY := true
-
 include $(BUILD_SHARED_LIBRARY)
