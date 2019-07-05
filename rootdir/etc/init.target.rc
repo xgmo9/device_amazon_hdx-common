@@ -319,12 +319,6 @@ service qmiproxy /system/bin/qmiproxy
     group radio qcom_diag
     disabled
 
-service ftm_ffbm /system/bin/ftmdaemon
-    user root
-    group root
-    disabled
-    oneshot
-
 service gpsone_daemon /system/bin/gpsone_daemon
     class late_start
     user gps
