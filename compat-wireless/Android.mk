@@ -89,10 +89,10 @@ endif
 
 ifeq ($(BOARD_CONFIG_ATH6KL_USB), true)
 include $(CLEAR_VARS)
-LOCAL_MODULE             := ath6kl_usb.ko
+LOCAL_MODULE             := wlan.ko
 LOCAL_MODULE_TAGS        := optional debug
 LOCAL_MODULE_KBUILD_NAME := wlan.ko
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/ath6kl-3.5
+LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules
 include $(DLKM_DIR)/AndroidKernelModule.mk
 
 # WLAN SYMLINKS
@@ -115,15 +115,7 @@ $(WCNSS_QCOM_WLAN_NV_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) rm -rf $@
 	$(hide) ln -sf $(WCNSS_QCOM_WLAN_NV_FILE) $@
 
-ATH6KL_WLAN_LINK := $(TARGET_OUT)/lib/modules/wlan.ko
-$(ATH6KL_WLAN_LINK): ATH6KL_WLAN_FILE := /system/lib/modules/ath6kl-3.5/ath6kl_usb.ko
-$(ATH6KL_WLAN_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
-	$(hide) echo "Symlink: $(ATH6KL_WLAN_LINK) -> $(ATH6KL_WLAN_FILE)"
-	$(hide) mkdir -p $(dir $@)
-	$(hide) rm -rf $@
-	$(hide) ln -sf $(ATH6KL_WLAN_FILE) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_QCOM_CFG_LINK) $(WCNSS_QCOM_WLAN_NV_LINK) $(ATH6KL_WLAN_LINK)
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_QCOM_CFG_LINK) $(WCNSS_QCOM_WLAN_NV_LINK)
 
 else
 include $(CLEAR_VARS)
