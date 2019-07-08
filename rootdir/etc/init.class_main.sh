@@ -47,6 +47,11 @@ case "$baseband" in
     "msm" | "csfb" | "svlte2a" | "mdm" | "mdm2" | "sglte" | "sglte2" | "dsda2" | "unknown" | "dsda3")
     start qmuxd
     case "$baseband" in
+        "msm")
+        start ril-daemon
+    esac
+
+    case "$baseband" in
         "svlte2a" | "csfb")
           start qmiproxy
         ;;
