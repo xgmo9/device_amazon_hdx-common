@@ -113,7 +113,6 @@
     <bool name="wifi_autocon">false</bool>
     <bool name="config_wifi_dual_band_support">true</bool>
     <bool name="config_wifi_hotspot2_enabled">false</bool>
-    <bool name="config_enableWifiDisplay">false</bool>
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
     <integer name="config_networkAvoidBadWifi">0</integer>
     <!-- <integer name="config_wifi_driver_stop_delay">120000</integer> //-->
