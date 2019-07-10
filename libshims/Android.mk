@@ -45,6 +45,6 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := shim_crypto.cpp
 LOCAL_MODULE := libshim_libcrypto
-LOCAL_SHARED_LIBRARIES := libcrypto
+LOCAL_SHARED_LIBRARIES := libcrypto libssl
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 include $(BUILD_SHARED_LIBRARY)
