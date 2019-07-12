@@ -18,5 +18,8 @@ DEVICE_PACKAGE_OVERLAYS += device/amazon/hdx-common/overlay-lineage
 # Inherit some common cyanogenmod stuff.
 $(call inherit-product-if-exists, vendor/cm/config/common_full_tablet_wifionly.mk)
 
+# Inherit telephony stuff.
+$(call inherit-product-if-exists, vendor/cm/config/telephony.mk)
+
 # Snap Camera
 PRODUCT_PACKAGES += Snap
