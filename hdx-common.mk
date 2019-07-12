@@ -176,6 +176,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	dtbToolCM
 
+PRODUCT_PACKAGES += \
+	rild \
+	libril \
+	librilutils \
+	libreference-ril
+
 # Wifi module
 PRODUCT_PACKAGES += \
 	ath6kl_usb.ko
