@@ -273,6 +273,7 @@ vendor/lib/lib-rtpsl.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneconn.so
 vendor/lib/libcnefeatureconfig.so
+vendor/lib/libcneqmiutils.so
 vendor/lib/libcneutils.so
 vendor/lib/libNimsWrap.so
 
