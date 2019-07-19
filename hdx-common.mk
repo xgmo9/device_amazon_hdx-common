@@ -157,6 +157,7 @@ PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
+	wcnss_service \
 	wpa_supplicant \
 	wpa_supplicant_overlay.conf \
 	p2p_supplicant_overlay.conf \

@@ -330,7 +330,6 @@ bin/sapd
 bin/ssr_diag
 bin/wdsdaemon
 bin/wcnss_filter
-bin/wcnss_service
 vendor/lib/libconfigdb.so
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
