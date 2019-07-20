@@ -19,7 +19,7 @@ DEVICE_PACKAGE_OVERLAYS += device/amazon/hdx-common/overlay-lineage
 $(call inherit-product-if-exists, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 # Inherit telephony stuff.
-$(call inherit-product-if-exists, vendor/cm/config/telephony.mk)
+$(call inherit-product-if-exists, vendor/cm/config/data_only.mk)
 
 # Snap Camera
 PRODUCT_PACKAGES += Snap
