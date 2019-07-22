@@ -287,10 +287,6 @@ etc/init.qcom.fm.sh
 etc/init.qcom.post_boot.sh
 
 # Media
-lib/libOmxVdecHevc.so
-vendor/lib/libAivPlay.so
-vendor/lib/libHevcSwDecoder.so
-vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
