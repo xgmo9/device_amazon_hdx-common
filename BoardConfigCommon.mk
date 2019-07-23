@@ -52,7 +52,8 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/lib/liblog.so|libshim_liblog.so \
     /system/lib/libcutils.so|libshim_liblog.so \
     /system/vendor/lib/libwvm.so|libshim_libwvm.so \
-    /system/vendor/lib/lib-imsdpl.so|libshim_libcrypto.so
+    /system/vendor/lib/lib-imsdpl.so|libshim_libcrypto.so \
+    /system/lib/libgui.so|libshim_libgui.so
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true

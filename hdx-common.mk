@@ -195,7 +195,8 @@ PRODUCT_PACKAGES += \
 	libshim_libbinder \
 	libshim_liblog \
 	libshim_libwvm \
-	libshim_libcrypto
+	libshim_libcrypto \
+	libshim_libgui
 
 # QC Perf
 ADDITIONAL_BUILD_PROPERTIES += \
