@@ -23,6 +23,9 @@ vendor/lib/libuiblur.so
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
+# Amazon
+bin/idme
+
 # ADSP
 bin/adsprpcd
 vendor/lib/libadsprpc.so
