@@ -79,6 +79,8 @@ on boot
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
 
+    mkdir /persist/bluetooth 0770 bluetooth bluetooth
+
     #Create PERFD deamon related dirs
     mkdir /data/misc/perfd 0755 root system
     chmod 2755 /data/misc/perfd
@@ -328,8 +330,15 @@ on property:vold.decrypt=trigger_shutdown_framework
     stop sensors
 
 on property:vold.decrypt=trigger_restart_framework
+    start config_bt_addr
     start qcom-c_main-sh
     start sensors
+
+service config_bt_addr /system/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
