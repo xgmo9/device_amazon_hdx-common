@@ -227,6 +227,22 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	DEVICE_PROVISIONED=1 \
 	ro.telephony.default_network=9
 
+# Bluetooth props
+ADDITIONAL_BUILD_PROPERTIES += \
+	bluetooth.hfp.client=1 \
+	qcom.bluetooth.soc=ath3k \
+	ro.bluetooth.hfp.ver=1.6 \
+	ro.qualcomm.bt.hci_transport=smd \
+	ro.bluetooth.dun=false \
+	ro.bluetooth.sap=false \
+	ro.qualcomm.bluetooth.ftp=true \
+	ro.qualcomm.bluetooth.hfp=false \
+	ro.qualcomm.bluetooth.hsp=false \
+	ro.qualcomm.bluetooth.map=false \
+	ro.qualcomm.bluetooth.nap=false \
+	ro.qualcomm.bluetooth.opp=true \
+	ro.qualcomm.bluetooth.pbap=true
+
 # enable graphics debugging
 ADDITIONAL_BUILD_PROPERTIES += \
 	debug.sf.hw=1 \
