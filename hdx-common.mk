@@ -61,14 +61,18 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 PRODUCT_PACKAGES += \
+	audiod \
 	audio.a2dp.default \
+	audio_policy.msm8974 \ # does this exist?
 	audio.primary.msm8974 \
 	audio.r_submix.default \
 	audio.usb.default \
 	libaudio-resampler \
 	libqcompostprocbundle \
 	libqcomvisualizer \
-	libqcomvoiceprocessing
+	libqcomvoiceprocessing \
+	libqcomvoiceprocessingdescriptors \ # kang from?
+	tinymix
 
 # Device config files
 PRODUCT_COPY_FILES += \
