@@ -56,7 +56,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/etc/media_codecs.xml:system/etc/media_codecs.xml \
 	$(LOCAL_PATH)/configs/etc/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
 	$(LOCAL_PATH)/configs/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
-	$(LOCAL_PATH)/configs/etc/mixer_paths.xml:system/etc/mixer_paths_auxpcm.xml \
+	$(LOCAL_PATH)/configs/etc/mixer_paths_auxpcm.xml:system/etc/mixer_paths_auxpcm.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
