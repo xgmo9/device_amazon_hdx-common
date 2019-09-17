@@ -6,7 +6,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/amazon/hdx-common/hdx-common-vendor.mk)
 
 # AOSP overlay
-DEVICE_PACKAGE_OVERLAYS += $(COMMON_FOLDER)/overlay-common
+DEVICE_PACKAGE_OVERLAYS += $(COMMON_FOLDER)/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
