@@ -202,3 +202,6 @@ BOARD_SEPOLICY_DIRS += \
         device/amazon/hdx-common/sepolicy
 
 MALLOC_SVELTE := true
+
+# Disable API check
+WITHOUT_CHECK_API := true
