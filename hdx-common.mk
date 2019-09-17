@@ -206,6 +206,10 @@ PRODUCT_PACKAGES += \
 ADDITIONAL_BUILD_PROPERTIES += \
 	ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
+# Snap Camera
+PRODUCT_PACKAGES += \
+	Snap
+
 # Common build.props
 ADDITIONAL_BUILD_PROPERTIES += \
 	ro.chipname=msm8974 \
