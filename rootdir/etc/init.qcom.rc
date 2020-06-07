@@ -188,7 +188,9 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
+    # load IPC for DSP subsystem
     insmod /system/lib/modules/adsprpc.ko
+    
     # bluetooth external ldo
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
