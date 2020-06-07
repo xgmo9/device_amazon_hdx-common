@@ -28,16 +28,18 @@
 import init.qcom.usb.rc
 
 on early-init
-    mkdir /firmware 0771 system system
-    mkdir /storage 0551 system sdcard_r
-    mkdir /persistbackup 0770 root root
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
 
+    mkdir /sys 0771 system system
+    mkdir /firmware 0771 system system
+
+    chown system system /sys/kernel/debug/kgsl/proc
+    
     symlink /data/tombstones /tombstones
+    
     chown system system /sys/devices/virtual/graphics/fb0/ad
     chown system system /sys/devices/virtual/graphics/fb1/ad
-    
-    mount debugfs debugfs /sys/kernel/debug
-    chown system system /sys/kernel/debug/kgsl/proc
 
 on init
     # Set the property to indicate type of virtual display to 0
