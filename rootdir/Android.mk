@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := check_prov.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/check_prov.sh
+LOCAL_SRC_FILES    := bin/check_prov.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT_SBIN)
 include $(BUILD_PREBUILT)
 
@@ -52,7 +52,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.class_main.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.class_main.sh
+LOCAL_SRC_FILES    := bin/init.class_main.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -60,7 +60,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.class_core.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.class_core.sh
+LOCAL_SRC_FILES    := bin/init.qcom.class_core.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -68,7 +68,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.sensor.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.sensor.sh
+LOCAL_SRC_FILES    := bin/init.qcom.sensor.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -76,7 +76,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.sh
+LOCAL_SRC_FILES    := bin/init.qcom.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -84,7 +84,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.ssr.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.ssr.sh
+LOCAL_SRC_FILES    := bin/init.qcom.ssr.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
@@ -92,7 +92,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.usb.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.usb.sh
+LOCAL_SRC_FILES    := bin/init.qcom.usb.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
