@@ -41,7 +41,9 @@ else
 TARGET_KERNEL_CONFIG ?= msm8974-hdx-perf_defconfig
 endif
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
+
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
 
 # Flags
 BOARD_NO_SECURE_DISCARD := true
