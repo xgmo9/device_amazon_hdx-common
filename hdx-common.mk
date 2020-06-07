@@ -38,7 +38,6 @@ PRODUCT_PACKAGES += \
 	fstab.qcom \
 	init.qcom.rc \
 	init.qcom.usb.rc \
-	init.target.rc \
 	init.class_main.sh \
 	init.qcom.class_core.sh \
 	init.qcom.factory.sh \
