@@ -35,12 +35,13 @@ BOARD_KERNEL_SEPARATED_DT := true
 
 # Kernel config
 TARGET_KERNEL_SOURCE := kernel/amazon/hdx-common
-ifeq ($(TARGET_BUILD_VARIANT),eng)
-TARGET_KERNEL_CONFIG ?= msm8974-hdx_defconfig
-else
-TARGET_KERNEL_CONFIG ?= msm8974-hdx-perf_defconfig
-endif
+TARGET_KERNEL_CONFIG := hdx-common_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
+
+# Enable debug on eng builds
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+TARGET_KERNEL_ADDITIONAL_CONFIG:= debug_defconfig
+endif
 
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
