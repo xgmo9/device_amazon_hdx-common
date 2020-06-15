@@ -188,7 +188,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi module
 PRODUCT_PACKAGES += \
-	ath6kl_usb.ko
+	wlan.ko
 
 PRODUCT_BOOT_JARS += \
 	qcmediaplayer
