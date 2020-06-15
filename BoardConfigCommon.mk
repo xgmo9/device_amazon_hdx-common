@@ -3,23 +3,22 @@ BOARD_VENDOR := amazon
 # headers
 TARGET_SPECIFIC_HEADER_PATH := device/amazon/hdx-common/include
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8974
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
-TARGET_BOOTLOADER_BOARD_NAME := MSM8974
-
-# Bootloader
-TARGET_NO_BOOTLOADER := true
 
 # Architecture
-TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
-TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
+TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Amazon KitKat libraries have text relocations, don't error out when
