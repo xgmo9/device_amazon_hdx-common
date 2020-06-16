@@ -50,6 +50,15 @@ PRODUCT_PACKAGES += \
 
 # Audio/Media
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+    
+PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/etc/audio_policy.conf:system/etc/audio_policy.conf \
 	$(LOCAL_PATH)/configs/etc/media_profiles.xml:system/etc/media_profiles.xml \
 	$(LOCAL_PATH)/configs/etc/media_codecs.xml:system/etc/media_codecs.xml \
