@@ -188,10 +188,7 @@ on early-boot
     write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
     write /sys/kernel/boot_adsp/boot 1
 
-on boot
-    # load IPC for DSP subsystem
-    insmod /system/lib/modules/adsprpc.ko
-    
+on boot  
     # bluetooth external ldo
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
