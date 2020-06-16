@@ -21,6 +21,9 @@ TARGET_CPU_VARIANT := krait
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
+# Binder API version
+TARGET_USES_64_BIT_BINDER := true
+
 # Amazon KitKat libraries have text relocations, don't error out when
 # using them.  TODO: Look through each lib which generates this error
 # and see if there are possible replacements using other device binaries
