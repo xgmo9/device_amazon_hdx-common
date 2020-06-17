@@ -15,6 +15,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 # Permissions
 PRODUCT_COPY_FILES += \
+	external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
 	$(COMMON_FOLDER)/amazon_tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
 	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
@@ -48,6 +49,12 @@ PRODUCT_PACKAGES += \
 	init.qcom.usb.sh \
 	ueventd.qcom.rc \
 	init.recovery.qcom.rc
+
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
 # Audio Calibration
 PRODUCT_COPY_FILES += \
@@ -105,7 +112,7 @@ PRODUCT_PACKAGES += \
 	libOmxVdecHevc \
 	libOmxVenc \
 	qcmediaplayer
-	
+
 # Keymap
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keymap/amazon_touch.idc:system/usr/idc/amazon_touch.idc \
