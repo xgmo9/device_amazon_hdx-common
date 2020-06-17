@@ -49,7 +49,7 @@ PRODUCT_PACKAGES += \
 	ueventd.qcom.rc \
 	init.recovery.qcom.rc
 
-# Audio
+# Audio Calibration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
@@ -58,7 +58,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
-    
+
+# Audio Config Files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:system/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
@@ -66,14 +67,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/mixer_paths_auxpcm.xml:system/etc/mixer_paths_auxpcm.xml
 
-# Media
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml \
-	$(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
-	$(LOCAL_PATH)/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
-
+# Audio Packages
 PRODUCT_PACKAGES += \
 	audiod \
 	audio.a2dp.default \
@@ -87,6 +81,14 @@ PRODUCT_PACKAGES += \
 	libqcomvoiceprocessing \
 	libqcomvoiceprocessingdescriptors \
 	tinymix
+
+# Media
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
+	$(LOCAL_PATH)/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 # Keymap
 PRODUCT_COPY_FILES += \
