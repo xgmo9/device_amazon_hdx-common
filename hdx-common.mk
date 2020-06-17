@@ -108,10 +108,6 @@ PRODUCT_PACKAGES += \
 	e2fsck \
 	setup_fs
 
-PRODUCT_PACKAGES += \
- 	libxml2 \
-	libnetcmdiface
-
 # Graphics
 PRODUCT_PACKAGES += \
 	copybit.msm8974 \
@@ -189,7 +185,8 @@ PRODUCT_PACKAGES += \
     libbson \
     libcnefeatureconfig \
     libtinyxml \
-    libxml2
+    libxml2 \
+	libnetcmdiface
 
 # QCOM Crypto
 PRODUCT_PACKAGES += \
