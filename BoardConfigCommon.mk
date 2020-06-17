@@ -109,9 +109,17 @@ TARGET_USES_OVERLAY := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
-MAX_EGL_CACHE_KEY_SIZE := 12*1024
-MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+
+# Shader cache config options
+# Maximum size of the  GLES Shaders that can be cached for reuse.
+# Increase the size if shaders of size greater than 12KB are used.
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+
+# Maximum GLES shader cache size for each app to store the compiled shader
+# binaries. Decrease the size if RAM or Flash Storage size is a limitation
+# of the device.
+MAX_EGL_CACHE_SIZE := 2048*1024
 
 # camera HAL1
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
