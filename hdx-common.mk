@@ -174,6 +174,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
+# WiFi
 PRODUCT_PACKAGES += \
 	wcnss_service \
 	wpa_supplicant \
@@ -181,7 +182,8 @@ PRODUCT_PACKAGES += \
 	p2p_supplicant_overlay.conf \
 	hostapd_default.conf \
 	hostapd.accept \
-	hostapd.deny
+	hostapd.deny \
+	wlan.ko
 
 # Misc dependencies
 PRODUCT_PACKAGES += \
@@ -211,10 +213,6 @@ PRODUCT_PACKAGES += \
 	libril \
 	librilutils \
 	libreference-ril
-
-# Wifi module
-PRODUCT_PACKAGES += \
-	wlan.ko
 
 PRODUCT_BOOT_JARS += \
 	qcmediaplayer
