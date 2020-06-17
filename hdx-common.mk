@@ -161,11 +161,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	power.msm8974
 
-# QRNGD
-PRODUCT_PACKAGES += \
-	qrngd \
-	qrngp
-
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
