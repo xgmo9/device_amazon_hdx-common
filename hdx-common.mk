@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
 	libqcomvoiceprocessingdescriptors \
 	tinymix
 
-# Media
+# Media Config Files
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml \
 	$(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
@@ -90,6 +90,22 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
+# Media Packages
+PRODUCT_PACKAGES += \
+	libc2dcolorconvert \
+	libdivxdrmdecrypt \
+	libdashplayer \
+	libstagefrighthw \
+	libOmxAacEnc \
+	libOmxAmrEnc \
+	libOmxCore \
+	libOmxEvrcEnc \
+	libOmxQcelp13Enc \
+	libOmxVdec \
+	libOmxVdecHevc \
+	libOmxVenc \
+	qcmediaplayer
+	
 # Keymap
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keymap/amazon_touch.idc:system/usr/idc/amazon_touch.idc \
@@ -138,22 +154,6 @@ PRODUCT_COPY_FILES += \
 # Lights
 PRODUCT_PACKAGES += \
 	lights.msm8974
-
-# Media
-PRODUCT_PACKAGES += \
-	libc2dcolorconvert \
-	libdivxdrmdecrypt \
-	libdashplayer \
-	libstagefrighthw \
-	libOmxAacEnc \
-	libOmxAmrEnc \
-	libOmxCore \
-	libOmxEvrcEnc \
-	libOmxQcelp13Enc \
-	libOmxVdec \
-	libOmxVdecHevc \
-	libOmxVenc \
-	qcmediaplayer
 
 # Power
 PRODUCT_PACKAGES += \
