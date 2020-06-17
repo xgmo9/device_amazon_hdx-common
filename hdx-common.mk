@@ -183,6 +183,17 @@ PRODUCT_PACKAGES += \
 	hostapd.accept \
 	hostapd.deny
 
+# Misc dependencies
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    curl \
+    libnl_2 \
+    libbson \
+    libcnefeatureconfig \
+    libtinyxml \
+    libxml2
+
 # QCOM Crypto
 PRODUCT_PACKAGES += \
 	libcryptfs_hw
