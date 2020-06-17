@@ -48,9 +48,6 @@ endif
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
 
-# Flags
-BOARD_NO_SECURE_DISCARD := true
-
 # Shims
 LINKER_FORCED_SHIM_LIBS := \
     /system/lib/libbinder.so|libshim_libbinder.so \
@@ -179,15 +176,13 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/msm_dwc3/f9200000.dwc3/gadget/lu
 # Temporary
 USE_CAMERA_STUB := true
 
-# CWM Recovery
+# Recovery
 TARGET_RECOVERY_FSTAB := device/amazon/hdx-common/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-# TWRP Recovery
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
