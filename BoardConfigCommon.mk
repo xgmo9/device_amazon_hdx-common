@@ -97,6 +97,11 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/amazon/hdx-common/bluetoot
 # chargers
 BOARD_CHARGER_RES := device/amazon/hdx-common/charger
 
+# cm-hw
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS += \
+    hardware/cyanogen/cmhw
+
 # Graphics
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
