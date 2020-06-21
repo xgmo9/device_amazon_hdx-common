@@ -173,7 +173,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/sensors/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
 
 # USB
 PRODUCT_PACKAGES += \
