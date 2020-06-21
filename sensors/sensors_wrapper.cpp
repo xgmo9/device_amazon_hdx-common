@@ -21,7 +21,7 @@
 #include <errno.h>
 
 // The "real" sensor lib to wrap around
-#define SENSOR_LIB "sensors.mako.so"
+#define SENSOR_LIB "/vendor/lib/hw/sensors.hdx.so"
 
 // Enable experimental flush support
 #define FLUSH_SUPPORT
