@@ -21,14 +21,14 @@ vendor/lib/libuiblur.so
 
 
 # Adreno GPU firmware
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
+etc/firmware/a330_pfp.fw:vendor/firmware/a330_pfp.fw
+etc/firmware/a330_pm4.fw:vendor/firmware/a330_pm4.fw
 
 # Amazon
-bin/idme
+bin/idme:vendor/bin/idme
 
 # ADSP
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
@@ -51,21 +51,21 @@ vendor/lib/soundfx/libhwdap.so
 vendor/lib/soundfx/libswdap.so
 
 # Bluetooth
-bin/abtfilt
-bin/btnvtool
-bin/hci_qcomm_init
-etc/hcidump.sh
-etc/hsic.control.bt.sh
+bin/abtfilt:vendor/bin/abtfilt
+bin/btnvtool:vendor/bin/btnvtool
+bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
+etc/hcidump.sh:vendor/bin/hcidump.sh
+etc/hsic.control.bt.sh:vendor/bin/hsic.control.bt.sh
 vendor/lib/libbtnv.so
 
 # Camera
-bin/mm-camera-cmd-tool
-bin/mm-qcamera-app
-bin/mm-qcamera-daemon
-lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so
-lib/libqomx_core.so
-lib/hw/camera.msm8974.so
+bin/mm-camera-cmd-tool:vendor/bin/mm-camera-cmd-tool
+bin/mm-qcamera-app:vendor/bin/mm-qcamera-app
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+lib/libmmcamera_interface.so:vendor/lib/libmmcamera_interface.so
+lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
+lib/libqomx_core.so:vendor/lib/libqomx_core.so
+lib/hw/camera.msm8974.so:vendor/lib/hw/camera.msm8974.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
@@ -172,22 +172,22 @@ vendor/lib/libchromatix_SKUAB_ST_s5k4e1_default_video.so
 vendor/lib/libchromatix_SKUAB_ST_s5k4e1_preview.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
 
 # Charging
-bin/hvdcp
+bin/hvdcp:vendor/bin/hvdcp
 
 # Compatibility
 vendor/lib/libstlport.so
 
 # DRM
-bin/drmdiagapp
-bin/qseecomd
-bin/qseecom_sample_client
-bin/qseecom_security_test
-lib/hw/keystore.amzn.qcom.so
+bin/drmdiagapp:vendor/bin/drmdiagapp
+bin/qseecomd:vendor/bin/qseecomd
+bin/qseecom_sample_client:vendor/bin/qseecom_sample_client
+bin/qseecom_security_test:vendor/bin/qseecom_security_test
+lib/hw/keystore.amzn.qcom.so:vendor/lib/hw/keystore.amzn.qcom.so
 vendor/lib/lib-sec-disp.so
 vendor/lib/libaivdrmclient.so
 vendor/lib/libDivxDrm.so
@@ -215,23 +215,23 @@ vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L3.so
 
 # Framework
-framework/qti-telephony-common.jar
+framework/qti-telephony-common.jar:vendor/framework/qti-telephony-common.jar
 
 # Location
-bin/gpsone_daemon
-bin/location-mq
-bin/quipc_igsn
-bin/quipc_main
-etc/cacert_location.pem
-etc/quipc.conf
-etc/sap.conf
-etc/xtra_root_cert.pem
-etc/xtwifi.conf
-lib/libgps.utils.so
-lib/libloc_api_v02.so
-lib/libloc_core.so
-lib/libloc_ds_api.so
-lib/libloc_eng.so
+bin/gpsone_daemon:vendor/bin/gpsone_daemon
+bin/location-mq:vendor/bin/location-mq
+bin/quipc_igsn:vendor/bin/quipc_igsn
+bin/quipc_main:vendor/bin/quipc_main
+etc/cacert_location.pem:vendor/etc/cacert_location.pem
+etc/quipc.conf:vendor/etc/quipc.conf
+etc/sap.conf:vendor/etc/sap.conf
+etc/xtra_root_cert.pem:vendor/etc/xtra_root_cert.pem
+etc/xtwifi.conf:vendor/etc/xtwifi.conf
+lib/libgps.utils.so:vendor/lib/libgps.utils.so
+lib/libloc_api_v02.so:vendor/lib/libloc_api_v02.so
+lib/libloc_core.so:vendor/lib/libloc_core.so
+lib/libloc_ds_api.so:vendor/lib/libloc_ds_api.so
+lib/libloc_eng.so:vendor/lib/libloc_eng.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libloc_ext.so
 vendor/lib/libloc_xtra.so
@@ -249,9 +249,9 @@ vendor/lib/libxtwifi_ulp_adaptor.so
 vendor/lib/libxtwifi_zpp_adaptor.so
 
 # IMS
-bin/imsdatadaemon
-bin/imsqmidaemon
-bin/ims_rtp_daemon
+bin/imsdatadaemon:vendor/bin/imsdatadaemon
+bin/imsqmidaemon:vendor/bin/imsqmidaemon
+bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
 vendor/lib/lib-dplmedia.so
 vendor/lib/lib-imscamera.so
 vendor/lib/lib-imsdpl.so
@@ -275,13 +275,13 @@ vendor/lib/libcneutils.so
 vendor/lib/libNimsWrap.so
 
 # Init
-etc/init.crda.sh
-etc/init.qcom.audio.sh
-etc/init.qcom.bt.sh
-etc/init.qcom.coex.sh
-etc/init.qcom.efs.sync.sh
-etc/init.qcom.fm.sh
-etc/init.qcom.post_boot.sh
+etc/init.crda.sh:vendor/bin/init.crda.sh
+etc/init.qcom.audio.sh:vendor/bin/init.qcom.audio.sh
+etc/init.qcom.bt.sh:vendor/bin/init.qcom.bt.sh
+etc/init.qcom.coex.sh:vendor/bin/init.qcom.coex.sh
+etc/init.qcom.efs.sync.sh:vendor/bin/init.qcom.efs.sync.sh
+etc/init.qcom.fm.sh:vendor/bin/init.qcom.fm.sh
+etc/init.qcom.post_boot.sh:vendor/bin/init.qcom.post_boot.sh
 
 # Media
 vendor/lib/libOmxAacDec.so
@@ -291,39 +291,39 @@ vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
 
 # Media firmware
-etc/firmware/venus.b00
-etc/firmware/venus.b01
-etc/firmware/venus.b02
-etc/firmware/venus.b03
-etc/firmware/venus.b04
-etc/firmware/venus.mbn
-etc/firmware/venus.mdt
+etc/firmware/venus.b00:vendor/firmware/venus.b00
+etc/firmware/venus.b01:vendor/firmware/venus.b01
+etc/firmware/venus.b02:vendor/firmware/venus.b02
+etc/firmware/venus.b03:vendor/firmware/venus.b03
+etc/firmware/venus.b04:vendor/firmware/venus.b04
+etc/firmware/venus.mbn:vendor/firmware/venus.mbn
+etc/firmware/venus.mdt:vendor/firmware/venus.mdt
 
 # Perf
-bin/mpdecision
+bin/mpdecision:vendor/bin/mpdecision
 
 # Qualcomm extension
 vendor/lib/libqc-opt.so
 
 # Qualcomm framework
-bin/diag_callback_client
-bin/diag_dci_sample
-bin/diag_klog
-bin/diag_mdlog
-bin/diag_socket_log
-bin/diag_uart_log
-bin/ds_fmc_appd
-bin/irsc_util
-bin/nl_listener
-bin/ptt_socket_app
-bin/qcom-system-daemon
-bin/qmiproxy
-bin/radish
-bin/rfs_access
-bin/sapd
-bin/ssr_diag
-bin/wdsdaemon
-bin/wcnss_filter
+bin/diag_callback_client:vendor/bin/diag_callback_client
+bin/diag_dci_sample:vendor/bin/diag_dci_sample
+bin/diag_klog:vendor/bin/diag_klog
+bin/diag_mdlog:vendor/bin/diag_mdlog
+bin/diag_socket_log:vendor/bin/diag_socket_log
+bin/diag_uart_log:vendor/bin/diag_uart_log
+bin/ds_fmc_appd:vendor/bin/ds_fmc_appd
+bin/irsc_util:vendor/bin/irsc_util
+bin/nl_listener:vendor/bin/nl_listener
+bin/ptt_socket_app:vendor/bin/ptt_socket_app
+bin/qcom-system-daemon:vendor/bin/qcom-system-daemon
+bin/qmiproxy:vendor/bin/qmiproxy
+bin/radish:vendor/bin/radish
+bin/rfs_access:vendor/bin/rfs_access
+bin/sapd:vendor/bin/sapd
+bin/ssr_diag:vendor/bin/ssr_diag
+bin/wdsdaemon:vendor/bin/wdsdaemon
+bin/wcnss_filter:vendor/bin/wcnss_filter
 vendor/lib/libconfigdb.so
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
@@ -346,18 +346,18 @@ vendor/lib/libSubSystemShutdown.so
 vendor/lib/libxml.so
 
 # Radio
-bin/ATFWD-daemon
-bin/bridgemgrd
-bin/dun-server
-bin/netmgrd
-bin/port-bridge
-bin/qmuxd
-bin/rmt_storage
-bin/wan_fwupdate
-bin/wankit
-bin/wan_savelog
-bin/wan_start
-lib/libril-lab126qmi.so
+bin/ATFWD-daemon:vendor/bin/ATFWD-daemon
+bin/bridgemgrd:vendor/bin/bridgemgrd
+bin/dun-server:vendor/bin/dun-server
+bin/netmgrd:vendor/bin/netmgrd
+bin/port-bridge:vendor/bin/port-bridge
+bin/qmuxd:vendor/bin/qmuxd
+bin/rmt_storage:vendor/bin/rmt_storage
+bin/wan_fwupdate:vendor/bin/wan_fwupdate
+bin/wankit:vendor/bin/wankit
+bin/wan_savelog:vendor/bin/wan_savelog
+bin/wan_start:vendor/bin/wan_start
+lib/libril-lab126qmi.so:vendor/lib/libril-lab126qmi.so
 vendor/lib/libCommandSvc.so
 vendor/lib/libnetmgr.so
 
@@ -365,35 +365,35 @@ vendor/lib/libnetmgr.so
 vendor/lib/libtzplayready.so
 
 # Sensors
-bin/sensors.qcom
+bin/sensors.qcom:vendor/bin/sensors.qcom
 vendor/lib/libAKM8963.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
-vendor/lib/hw/sensors.msm8974.so
+vendor/lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.hdx.so
 
 # Time
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
 vendor/lib/libalarmservice_jni.so
 vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
 # Thermal
-bin/thermal-engine
+bin/thermal-engine:vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # USB
-bin/usbhub
-bin/usbhub_init
+bin/usbhub:vendor/bin/usbhub
+bin/usbhub_init:vendor/bin/usbhub_init
 
 # WiFi
-bin/ath6kl-service
-etc/qca6234-service.sh
-lib/libwpa_client.so
+bin/ath6kl-service:vendor/bin/ath6kl-service
+etc/qca6234-service.sh:vendor/bin/qca6234-service.sh
+#lib/libwpa_client.so:vendor/lib/libwpa_client.so
 
 # WiFi firmware
-etc/firmware/ar3k/1020201/PS_ASIC.pst
-etc/firmware/ar3k/1020201/RamPatch.txt
-etc/firmware/ath6k/AR6004/hw1.3/bdata.bin
-etc/firmware/ath6k/AR6004/hw1.3/fw.ram.bin
-etc/firmware/ath6k/AR6004/hw3.0/fw.ram.bin
+etc/firmware/ar3k/1020201/PS_ASIC.pst:vendor/firmware/ar3k/1020201/PS_ASIC.pst
+etc/firmware/ar3k/1020201/RamPatch.txt:vendor/firmware/ar3k/1020201/RamPatch.txt
+etc/firmware/ath6k/AR6004/hw1.3/bdata.bin:vendor/firmware/ath6k/AR6004/hw1.3/bdata.bin
+etc/firmware/ath6k/AR6004/hw1.3/fw.ram.bin:vendor/firmware/ath6k/AR6004/hw1.3/fw.ram.bin
+etc/firmware/ath6k/AR6004/hw3.0/fw.ram.bin:vendor/firmware/ath6k/AR6004/hw3.0/fw.ram.bin

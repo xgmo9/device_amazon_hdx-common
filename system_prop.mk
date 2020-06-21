@@ -17,7 +17,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
 
 # Radio props
 ADDITIONAL_BUILD_PROPERTIES += \
-	rild.libpath=/system/lib/libril-lab126qmi.so \
+	rild.libpath=/vendor/lib/libril-lab126qmi.so \
 	ril.subscription.types=NV,RUIM \
 	persist.rild.nitz_plmn="" \
 	persist.rild.nitz_long_ons_0="" \
@@ -71,7 +71,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	ro.qc.sdk.sensors.gestures=true \
 	ro.qc.sdk.gestures.camera=false \
 	ro.qc.sdk.camera.facialproc=false \
-	ro.qcom.ad.calib.data=/system/etc/ad_calib.cfg \
+	ro.qcom.ad.calib.data=/vendor/etc/ad_calib.cfg \
 	persist.debug.wfd.enable=1 \
 	persist.sys.wfd.virtual=0 \
 	ro.usb.vid=1949 \
