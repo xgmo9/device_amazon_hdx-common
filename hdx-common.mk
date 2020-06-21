@@ -209,6 +209,10 @@ PRODUCT_PACKAGES += \
 # BT
 PRODUCT_PACKAGES += \
 	libbt-vendor
+    
+# Sensors
+PRODUCT_PACKAGES += \
+    sensors.msm8974
 
 # DTB Tool
 PRODUCT_PACKAGES += \
