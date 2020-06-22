@@ -220,8 +220,11 @@ framework/qti-telephony-common.jar:vendor/framework/qti-telephony-common.jar
 # Location
 bin/gpsone_daemon:vendor/bin/gpsone_daemon
 bin/location-mq:vendor/bin/location-mq
+bin/lowi-server:vendor/bin/lowi-server
 bin/quipc_igsn:vendor/bin/quipc_igsn
 bin/quipc_main:vendor/bin/quipc_main
+bin/xtwifi-client:vendor/bin/xtwifi-client
+bin/xtwifi-inet-agent:vendor/bin/xtwifi-client-agent
 etc/cacert_location.pem:vendor/etc/cacert_location.pem
 etc/quipc.conf:vendor/etc/quipc.conf
 etc/sap.conf:vendor/etc/sap.conf
