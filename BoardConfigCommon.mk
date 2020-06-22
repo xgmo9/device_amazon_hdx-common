@@ -53,8 +53,8 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/lib/libbinder.so|libshim_libbinder.so \
     /system/lib/liblog.so|libshim_liblog.so \
     /system/lib/libcutils.so|libshim_liblog.so \
-    /system/vendor/lib/libwvm.so|libshim_libwvm.so \
     /system/vendor/lib/lib-imsdpl.so|libshim_libcrypto.so \
+    /system/vendor/bin/mpdecision|libshim_atomic.so \
     /system/lib/libgui.so|libshim_libgui.so
 
 # QCOM hardware

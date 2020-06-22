@@ -20,6 +20,11 @@
 
 #define LOG_BUF_SIZE 1024
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 int lab126_log_write(int bufID, int prio, const char *tag, const char *fmt, ...)
 {
 	va_list ap;
@@ -61,4 +66,8 @@ int __vitals_log_print(int bufID, int prio, const char *tag, const char *fmt, ..
 
 	return __android_log_write(ANDROID_LOG_DEBUG, tag, "__vitals_log_print not implemented");
 }
+
+#ifdef __cplusplus
+}
+#endif
 

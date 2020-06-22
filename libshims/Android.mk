@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,46 +15,55 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := shim_binder_abi_fix.cpp
+LOCAL_SRC_FILES := shim_binder.cpp
 LOCAL_SHARED_LIBRARIES := libbinder
 LOCAL_MODULE := libshim_libbinder
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := shim_atomic.cpp
+LOCAL_MODULE := libshim_atomic
+LOCAL_MODULE_TAGS := optional
+LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := shim_liblog_logd_write.c
+LOCAL_SRC_FILES := shim_log.cpp
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_MODULE := libshim_liblog
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
-
-
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := shim_libwvm.c
-LOCAL_SHARED_LIBRARIES := libstagefright_foundation
-LOCAL_MODULE := libshim_libwvm
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_32_BIT_ONLY := true
-include $(BUILD_SHARED_LIBRARY)
-
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := shim_crypto.cpp
 LOCAL_MODULE := libshim_libcrypto
 LOCAL_SHARED_LIBRARIES := libcrypto libssl
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := shim_libgui.cpp
+LOCAL_SRC_FILES := shim_gui.cpp
 LOCAL_SHARED_LIBRARIES := libgui
 LOCAL_MODULE := libshim_libgui
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_32_BIT_ONLY := true
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := shim_wvm.cpp
+LOCAL_SHARED_LIBRARIES := libstagefright_foundation
+LOCAL_MODULE := libshim_libwvm
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)

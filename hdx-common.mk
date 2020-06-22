@@ -229,6 +229,7 @@ PRODUCT_BOOT_JARS += \
 
 # ABI fixes for old binaries
 PRODUCT_PACKAGES += \
+	libshim_atomic \
 	libshim_libbinder \
 	libshim_liblog \
 	libshim_libwvm \

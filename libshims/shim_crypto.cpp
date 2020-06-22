@@ -80,9 +80,9 @@ extern "C" long SSL_ctrl(SSL *s, int cmd, long larg, void *parg) {
 			return 1;
 
 		case OPENSSL_CTRL_GET_RI_SUPPORT:
-			if (s->s3)
+			//if (s->s3)
 				return SSL_get_secure_renegotiation_support(s);
-			else return 0;
+			//else return 0;
 
 		default:
 			// return(s->method->ssl_ctrl(s,cmd,larg,parg));
