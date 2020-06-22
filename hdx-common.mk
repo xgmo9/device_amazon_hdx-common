@@ -201,7 +201,8 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libtinyxml \
     libxml2 \
-	libnetcmdiface
+	libnetcmdiface \
+	libcurl
 
 # QCOM Crypto
 PRODUCT_PACKAGES += \
