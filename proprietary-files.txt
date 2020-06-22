@@ -231,6 +231,7 @@ etc/sap.conf:vendor/etc/sap.conf
 etc/xtra_root_cert.pem:vendor/etc/xtra_root_cert.pem
 etc/xtwifi.conf:vendor/etc/xtwifi.conf
 lib/libgps.utils.so:vendor/lib/libgps.utils.so
+lib/libnl_2.so:vendor/lib/libnl_2.so
 lib/libloc_api_v02.so:vendor/lib/libloc_api_v02.so
 lib/libloc_core.so:vendor/lib/libloc_core.so
 lib/libloc_ds_api.so:vendor/lib/libloc_ds_api.so
