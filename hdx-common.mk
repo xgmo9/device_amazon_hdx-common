@@ -223,9 +223,6 @@ PRODUCT_PACKAGES += \
 	librilutils \
 	libreference-ril
 
-PRODUCT_BOOT_JARS += \
-	qcmediaplayer
-
 # ABI fixes for old binaries
 PRODUCT_PACKAGES += \
 	libshim_atomic \
