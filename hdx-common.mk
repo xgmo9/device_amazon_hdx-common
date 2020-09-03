@@ -87,11 +87,14 @@ PRODUCT_PACKAGES += \
 	audio.r_submix.default \
 	audio.usb.default \
 	libaudio-resampler \
+	tinymix
+
+# Audio effects
+PRODUCT_PACKAGES += \
 	libqcompostprocbundle \
 	libqcomvisualizer \
 	libqcomvoiceprocessing \
-	libqcomvoiceprocessingdescriptors \
-	tinymix
+	libqcomvoiceprocessingdescriptors
 
 # Media Config Files
 PRODUCT_COPY_FILES += \
