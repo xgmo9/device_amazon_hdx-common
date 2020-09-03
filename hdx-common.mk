@@ -172,10 +172,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
 
-# USB
-PRODUCT_PACKAGES += \
-	com.android.future.usb.accessory
-
 # WiFi
 PRODUCT_PACKAGES += \
 	wcnss_service \
