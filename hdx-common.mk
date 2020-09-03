@@ -103,17 +103,18 @@ PRODUCT_COPY_FILES += \
 
 # Media Packages
 PRODUCT_PACKAGES += \
-	libc2dcolorconvert \
-	libdivxdrmdecrypt \
-	libstagefrighthw \
-	libOmxAacEnc \
-	libOmxAmrEnc \
-	libOmxCore \
-	libOmxEvrcEnc \
-	libOmxQcelp13Enc \
-	libOmxVdec \
-	libOmxVdecHevc \
-	libOmxVenc
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libextmedia_jni \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxVidcCommon \
+    libstagefrighthw
 
 # Keymap
 PRODUCT_COPY_FILES += \
