@@ -105,7 +105,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	libc2dcolorconvert \
 	libdivxdrmdecrypt \
-	libdashplayer \
 	libstagefrighthw \
 	libOmxAacEnc \
 	libOmxAmrEnc \
@@ -114,8 +113,7 @@ PRODUCT_PACKAGES += \
 	libOmxQcelp13Enc \
 	libOmxVdec \
 	libOmxVdecHevc \
-	libOmxVenc \
-	qcmediaplayer
+	libOmxVenc
 
 # Keymap
 PRODUCT_COPY_FILES += \
