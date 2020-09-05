@@ -79,7 +79,7 @@ int bt_semaphore_create(void)
 {
 	int fd;
 
-	fd = open(WIFI_BT_STATUS_LOCK, O_RDONLY | O_CREAT);
+    fd = open(WIFI_BT_STATUS_LOCK, O_RDONLY);
 
 	if (fd < 0)
 		ALOGE("can't create file %d\n", fd);
@@ -470,31 +470,10 @@ static int op(bt_vendor_opcode_t opcode, void *param)
 #endif
 		break;
 
-	case BT_VND_OP_A2DP_OFFLOAD_START:
+	default:
 		/* TODO */
-		ALOGD("BT_VND_OP_A2DP_OFFLOAD_START");
+		ALOGD("BT_VND_OP_DEFAULT");
 		break;
-
-	case BT_VND_OP_A2DP_OFFLOAD_STOP:
-		/* TODO */
-		ALOGD("BT_VND_OP_A2DP_OFFLOAD_STOP");
-		break;
-
-	case FM_VND_OP_POWER_CTRL:
-		/* TODO */
-		ALOGD("FM_VND_OP_POWER_CTRL");
-		break;
-
-	case BT_VND_OP_FM_USERIAL_OPEN:
-		/* TODO */
-		ALOGD("BT_VND_OP_FM_USERIAL_OPEN");
-		break;
-
-	case BT_VND_OP_FM_USERIAL_CLOSE:
-		/* TODO */
-		ALOGD("BT_VND_OP_FM_USERIAL_CLOSE");
-		break;
-
 	}
 
 	return retval;
