@@ -3,11 +3,11 @@
 #
 
 # QC Perf
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 	
 # Common build.props
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	ro.chipname=msm8974 \
 	ro.sf.lcd_density=320 \
 	ro.opengles.version=196608 \
@@ -16,7 +16,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	lockscreen.rot_override=true
 
 # Radio props
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	rild.libpath=/vendor/lib/libril-lab126qmi.so \
 	ril.subscription.types=NV,RUIM \
 	persist.rild.nitz_plmn="" \
@@ -32,7 +32,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	ro.telephony.default_network=9
 
 # Bluetooth props
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	bluetooth.hfp.client=1 \
 	qcom.bluetooth.soc=ath3k \
 	ro.bluetooth.hfp.ver=1.6 \
@@ -45,17 +45,21 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	ro.qualcomm.bluetooth.map=false \
 	ro.qualcomm.bluetooth.nap=false \
 	ro.qualcomm.bluetooth.opp=true \
-	ro.qualcomm.bluetooth.pbap=true
+	ro.qualcomm.bluetooth.pbap=true \
+	ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr
 
 # enable graphics debugging
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.hw=1 \
 	debug.egl.hw=1 \
 	persist.hwc.mdpcomp.enable=true \
 	debug.mdpcomp.logs=0 
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_buffer_age=false
+
 # new props test
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	debug.composition.type=c2d \
 	sys.hwc.gpu_perf_mode=1 \
 	dev.pm.dyn_samplingrate=1 \
@@ -86,7 +90,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	keyguard.ori.timeout=350
 
 # audio/media props
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	media.aac_51_output_enabled=true \
 	vidc.debug.level=1 \
 	persist.audio.fluence.voicecall=true \
@@ -94,3 +98,6 @@ ADDITIONAL_BUILD_PROPERTIES += \
 	av.offload.enable=true \
 	media.stagefright.legacyencoder=true \
 	media.stagefright.less-secure=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.media.treble_omx=false
