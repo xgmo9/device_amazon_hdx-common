@@ -50,7 +50,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 KERNEL_TOOLCHAIN := /mnt/data/lineage/lineage-16.0/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
 
 # Shims
-LINKER_FORCED_SHIM_LIBS := \
+TARGET_LD_SHIM_LIBS := \
     /system/lib/libbinder.so|libshim_libbinder.so \
     /system/lib/liblog.so|libshim_liblog.so \
     /system/lib/libcutils.so|libshim_liblog.so \
