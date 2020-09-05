@@ -37,6 +37,9 @@ vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
+# Amazon
+bin/idme:vendor/bin/idme
+
 # Audio
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbmapper.so
@@ -54,8 +57,6 @@ vendor/lib/soundfx/libswdap.so
 bin/abtfilt:vendor/bin/abtfilt
 bin/btnvtool:vendor/bin/btnvtool
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
-etc/hcidump.sh:vendor/bin/hcidump.sh
-etc/hsic.control.bt.sh:vendor/bin/hsic.control.bt.sh
 vendor/lib/libbtnv.so
 
 # Camera
@@ -187,10 +188,9 @@ bin/drmdiagapp:vendor/bin/drmdiagapp
 bin/qseecomd:vendor/bin/qseecomd
 bin/qseecom_sample_client:vendor/bin/qseecom_sample_client
 bin/qseecom_security_test:vendor/bin/qseecom_security_test
-lib/hw/keystore.amzn.qcom.so:vendor/lib/hw/keystore.amzn.qcom.so
+#lib/hw/keystore.amzn.qcom.so:vendor/lib/hw/keystore.amzn.qcom.so
 vendor/lib/lib-sec-disp.so
 vendor/lib/libaivdrmclient.so
-vendor/lib/libDivxDrm.so
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -200,19 +200,12 @@ vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libsecureui.so
 vendor/lib/libSecureUILib.so
-vendor/lib/libSHIMDivxDrm.so
 vendor/lib/libssd.so
 vendor/lib/libStDrvInt.so
 vendor/lib/libtzdrmgenprov.so
-vendor/lib/drm/libdrmprplugin.so
 
 # DRM - widevine
-vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/libdrmdecrypt.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L3.so
 
 # Framework
 framework/qti-telephony-common.jar:vendor/framework/qti-telephony-common.jar
@@ -281,8 +274,6 @@ vendor/lib/libNimsWrap.so
 # Init
 etc/init.crda.sh:vendor/bin/init.crda.sh
 etc/init.qcom.audio.sh:vendor/bin/init.qcom.audio.sh
-etc/init.qcom.bt.sh:vendor/bin/init.qcom.bt.sh
-etc/init.qcom.coex.sh:vendor/bin/init.qcom.coex.sh
 etc/init.qcom.efs.sync.sh:vendor/bin/init.qcom.efs.sync.sh
 etc/init.qcom.fm.sh:vendor/bin/init.qcom.fm.sh
 etc/init.qcom.post_boot.sh:vendor/bin/init.qcom.post_boot.sh
@@ -305,9 +296,8 @@ etc/firmware/venus.mdt:vendor/firmware/venus.mdt
 
 # Perf
 bin/mpdecision:vendor/bin/mpdecision
+vendor/lib/libqti-perfd-client.so
 
-# Qualcomm extension
-vendor/lib/libqc-opt.so
 
 # Qualcomm framework
 bin/diag_callback_client:vendor/bin/diag_callback_client
@@ -392,8 +382,6 @@ bin/usbhub_init:vendor/bin/usbhub_init
 
 # WiFi
 bin/ath6kl-service:vendor/bin/ath6kl-service
-etc/qca6234-service.sh:vendor/bin/qca6234-service.sh
-#lib/libwpa_client.so:vendor/lib/libwpa_client.so
 
 # WiFi firmware
 etc/firmware/ar3k/1020201/PS_ASIC.pst:vendor/firmware/ar3k/1020201/PS_ASIC.pst
