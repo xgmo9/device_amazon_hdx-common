@@ -1,1 +1,2 @@
 allow radio touchpanel_sysfs:file rw_file_perms;
+#allow radio init:binder call;

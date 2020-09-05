@@ -1,9 +1,24 @@
 allow init debugfs:dir mounton;
 allow init debugfs:file write;
 allow init persist_file:filesystem relabelto;
-allow init self:socket { read write create ioctl };
+
 allow init shell_data_file:fifo_file getattr;
 allow init smem_log_device:chr_file { write ioctl };
 allow init socket_device:sock_file { create setattr };
 allow init sysfs_mpdecision:file getattr;
 allow init thermal_device:chr_file write;
+
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hwservicemanager:binder { call transfer };
+allow init proc_modules:file getattr;
+allow init property_socket:sock_file write;
+allow init self:netlink_kobject_uevent_socket { bind create read setopt };
+allow init functionfs:dir mounton;
+allow init vendor_file:file execute_no_trans;
+#allow init hal_light_hwservice:hwservice_manager add;
+allow init btnvtool_exec:file execute_no_trans;
+allow init shell_exec:file execute_no_trans;
+allow init system_file:file execute_no_trans;
+allow init vendor_file:file { execmod execute_no_trans };
+
+allow init proc_startril:file getattr;

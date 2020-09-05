@@ -5,5 +5,22 @@ type ath6kl-service_exec, exec_type, file_type;
 init_daemon_domain(ath6kl-service)
 
 allow ath6kl-service ath6kl-service_exec:file rx_file_perms;
-allow ath6kl-service cnd_data_file:dir read;
+allow ath6kl-service cnd_data_file:dir { read write remove_name };
+allow ath6kl-service cnd_data_file:file { open read write unlink };
 allow ath6kl-service self:capability { dac_read_search dac_override };
+
+allow ath6kl-service servicemanager:binder call;
+allow ath6kl-service ashmem_device:chr_file execute;
+allow ath6kl-service ath6kl-service:process execmem;
+allow ath6kl-service system_server:binder call;
+
+allow ath6kl-service dalvikcache_data_file:file { getattr read open lock };
+allow ath6kl-service proc_modules:file { getattr read open };
+allow ath6kl-service shell_exec:file { getattr read open execute };
+
+allow ath6kl-service bluetooth_prop:file { getattr read open };
+allow ath6kl-service shell_exec:file { getattr execute_no_trans };
+allow ath6kl-service system_file:file execute_no_trans;
+allow ath6kl-service zygote_exec:file { getattr execute execute_no_trans read open };
+
+allow ath6kl-service dalvikcache_data_file:dir { getattr };

@@ -1,0 +1,6 @@
+allow servicemanager zygote:dir search;
+allow servicemanager zygote:file { open read };
+allow servicemanager zygote:process getattr;
+allow servicemanager ath6kl-service:dir search;
+allow servicemanager ath6kl-service:file { getattr read open };
+allow servicemanager ath6kl-service:process { getattr };

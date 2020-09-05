@@ -1,0 +1,6 @@
+allow zygote ashmem_device:chr_file execute;
+allow zygote self:process execmem;
+allow zygote servicemanager:binder call;
+allow zygote system_server:binder call;
+allow zygote wifi_service:service_manager find;
+#allow zygote zygote_tmpfs:file execute;

@@ -11,3 +11,12 @@ allow qti_init_shell sensors_persist_file:file { write };
 allow qti_init_shell sensors_prop:file { getattr open read };
 allow qti_init_shell sensors_prop:property_service set;
 allow qti_init_shell sysfs_devices_system_cpu:file setattr;
+allow qti_init_shell proc_net:dir { open read };
+#allow qti_init_shell serialno_prop:file { getattr open read };
+allow qti_init_shell shell_exec:file { getattr read };
+allow qti_init_shell sysfs:file write;
+allow qti_init_shell toolbox_exec:file { execute execute_no_trans getattr open read };
+#allow qti_init_shell wcnss_prop:property_service set;
+allow qti_init_shell wifi_prop:property_service set;
+
+allow qti_init_shell sysfs_cpu_boost:file write;

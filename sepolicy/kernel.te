@@ -1,0 +1,3 @@
+allow kernel cnd_data_file:dir { add_name write };
+allow kernel cnd_data_file:file { create open write };
+allow kernel self:capability dac_override;

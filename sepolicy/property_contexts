@@ -5,3 +5,4 @@ ro.radio.noril             u:object_r:radio_prop:s0
 keyguard.no_require_sim    u:object_r:radio_prop:s0
 qcom.bluetooth.            u:object_r:bluetooth_prop:s0
 persist.sensors.calibrated u:object_r:sensors_prop:s0
+vendor.qcom.devup          u:object_r:vendor_device_prop:s0
