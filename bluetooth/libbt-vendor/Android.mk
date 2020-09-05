@@ -27,7 +27,8 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES += \
         $(LOCAL_PATH)/include \
-	system/bt/hci/include \
+        external/bluetooth/bluedroid/hci/include \
+        system/bt/hci/include \
         $(TARGET_OUT_HEADERS)/bt/hci_qcomm_init
 
 ifeq ($(BOARD_HAS_QCA_BT_AR3002), true)
