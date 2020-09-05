@@ -47,7 +47,7 @@ TARGET_KERNEL_ADDITIONAL_CONFIG:= debug_defconfig
 endif
 
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
+KERNEL_TOOLCHAIN := /mnt/data/lineage/lineage-16.0/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
 
 # Shims
 LINKER_FORCED_SHIM_LIBS := \
