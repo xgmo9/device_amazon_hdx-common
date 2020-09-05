@@ -21,8 +21,5 @@
 
 #define BTM_DEF_LOCAL_NAME   "KFire HDX"
 
-// skips conn update at conn completion
-#define BTA_BLE_SKIP_CONN_UPD  TRUE
-
 #endif
 
