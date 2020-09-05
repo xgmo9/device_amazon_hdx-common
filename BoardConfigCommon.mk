@@ -51,7 +51,7 @@ KERNEL_TOOLCHAIN := /mnt/data/lineage/lineage-16.0/prebuilts/gcc/linux-x86/arm/$
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /system/lib/libbinder.so|libshim_libbinder.so \
+    /system/vendor/bin/ATFWD-daemon|libshim_libbinder.so \
     /system/lib/liblog.so|libshim_liblog.so \
     /system/lib/libcutils.so|libshim_liblog.so \
     /system/vendor/lib/lib-imsdpl.so|libshim_libcrypto.so \
