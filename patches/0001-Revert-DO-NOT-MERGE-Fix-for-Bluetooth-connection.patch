@@ -1,0 +1,48 @@
+From f56f3706de774ab2a3993d5e8f17788758222b3a Mon Sep 17 00:00:00 2001
+From: Joel Bacchus <joel.bacchus@protonmail.com>
+Date: Fri, 4 Sep 2020 21:21:06 +0100
+Subject: [PATCH] Revert "DO NOT MERGE Fix for Bluetooth connection being
+ dropped after HCI Read Encryption Key Size"
+
+This reverts commit ae0bb8f8ea812051f7f6e5a0592b0e9ad53d0c22.
+---
+ stack/btu/btu_hcif.cc | 16 ----------------
+ 1 file changed, 16 deletions(-)
+
+diff --git a/stack/btu/btu_hcif.cc b/stack/btu/btu_hcif.cc
+index 720bab266..96ffb0897 100644
+--- a/stack/btu/btu_hcif.cc
++++ b/stack/btu/btu_hcif.cc
+@@ -734,14 +734,6 @@ static void read_encryption_key_size_complete_after_encryption_change(
+                  << std::to_string(key_size);
+   }
+ 
+-  if (status == HCI_ERR_INSUFFCIENT_SECURITY) {
+-    /* If remote device stop the encryption before we call "Read Encryption Key
+-     * Size", we might receive Insufficient Security, which means that link is
+-     * no longer encrypted. */
+-    LOG(INFO) << __func__ << ": encryption stopped on link: " << loghex(handle);
+-    return;
+-  }
+-
+   if (status != HCI_SUCCESS) {
+     LOG(INFO) << __func__ << ": disconnecting, status: " << loghex(status);
+     btsnd_hcic_disconnect(handle, HCI_ERR_PEER_USER);
+@@ -1704,14 +1696,6 @@ static void read_encryption_key_size_complete_after_key_refresh(
+                  << std::to_string(key_size);
+   }
+ 
+-  if (status == HCI_ERR_INSUFFCIENT_SECURITY) {
+-    /* If remote device stop the encryption before we call "Read Encryption Key
+-     * Size", we might receive Insufficient Security, which means that link is
+-     * no longer encrypted. */
+-    LOG(INFO) << __func__ << ": encryption stopped on link: " << loghex(handle);
+-    return;
+-  }
+-
+   if (status != HCI_SUCCESS) {
+     LOG(INFO) << __func__ << ": disconnecting, status: " << loghex(status);
+     btsnd_hcic_disconnect(handle, HCI_ERR_PEER_USER);
+-- 
+2.25.1
+
