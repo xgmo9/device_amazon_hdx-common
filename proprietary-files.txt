@@ -204,9 +204,6 @@ vendor/lib/libssd.so
 vendor/lib/libStDrvInt.so
 vendor/lib/libtzdrmgenprov.so
 
-# DRM - widevine
-vendor/lib/mediadrm/libwvdrmengine.so
-
 # Framework
 framework/qti-telephony-common.jar:vendor/framework/qti-telephony-common.jar
 
@@ -379,6 +376,9 @@ vendor/lib/libthermalioctl.so
 # USB
 bin/usbhub:vendor/bin/usbhub
 bin/usbhub_init:vendor/bin/usbhub_init
+
+# Widevine - from angler's OPR6.170623.017 factory image
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
 
 # WiFi
 bin/ath6kl-service:vendor/bin/ath6kl-service
