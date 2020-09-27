@@ -17,6 +17,18 @@ $(FIRMWARE_DXHDCP2_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_DXHDCP2_SYMLINKS)
 
+WCD9320_IMAGES := \
+    wcd9320_anc.bin wcd9320_mbhc.bin
+
+WCD9320_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/wcd9320/,$(WCD9320_IMAGES))
+$(WCD9320_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "wcd9320 firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	tf=$(notdir $@); if [ "$$tf" = "wcd9320_mbhc.bin" ]; then tf="mbhc.bin"; fi; ln -sf /data/misc/audio/$$tf $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCD9320_SYMLINKS)
+
 endif
 
 endif
