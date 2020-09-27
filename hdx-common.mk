@@ -185,9 +185,11 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
+	hostapd \
 	wcnss_service \
 	wpa_supplicant \
-	wpa_supplicant_overlay.conf \
+	wpa_supplicant.conf \
+	p2p_supplicant.conf \
 	wlan.ko \
     libwpa_client \
 	wificond
