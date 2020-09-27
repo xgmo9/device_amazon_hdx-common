@@ -94,6 +94,11 @@ PRODUCT_PACKAGES += \
 	libqcomvoiceprocessing \
 	libqcomvoiceprocessingdescriptors
 
+# AptX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/aptx/lib/libaptX_encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib/libaptX_encoder.so \
+    $(LOCAL_PATH)/bluetooth/aptx/lib/libaptXHD_encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib/libaptXHD_encoder.so
+
 # IPC Security config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/etc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
