@@ -1,0 +1,53 @@
+From 3dc9a3721243c4e52a2961fa9a76124365fac25f Mon Sep 17 00:00:00 2001
+From: Joel Bacchus <joel.bacchus@protonmail.com>
+Date: Sun, 27 Sep 2020 13:12:41 +0100
+Subject: [PATCH] HDX: Add back odd hwrotation support
+
+Change-Id: Ie8184ae9d0773bc0777a5de01ac46fe50634665c
+---
+ services/surfaceflinger/SurfaceFlinger.cpp | 29 ++++++++++++----------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
+
+diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
+index 4a3c1e425..595e138f3 100644
+--- a/services/surfaceflinger/SurfaceFlinger.cpp
++++ b/services/surfaceflinger/SurfaceFlinger.cpp
+@@ -301,19 +301,22 @@ SurfaceFlinger::SurfaceFlinger() : SurfaceFlinger(SkipInitialization) {
+         getDisplayOrientation< V1_1::ISurfaceFlingerConfigs, &V1_1::ISurfaceFlingerConfigs::primaryDisplayOrientation>(
+             V1_1::DisplayOrientation::ORIENTATION_0);
+ 
+-    switch (primaryDisplayOrientation) {
+-        case V1_1::DisplayOrientation::ORIENTATION_90:
+-            SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientation90;
+-            break;
+-        case V1_1::DisplayOrientation::ORIENTATION_180:
+-            SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientation180;
+-            break;
+-        case V1_1::DisplayOrientation::ORIENTATION_270:
+-            SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientation270;
+-            break;
+-        default:
+-            SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientationDefault;
+-            break;
++    if(primaryDisplayOrientation == V1_1::DisplayOrientation::ORIENTATION_0) {
++        int sfRotation = property_get_int32("ro.sf.hwrotation", -1);
++        switch (sfRotation) {
++            case 90:
++                SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientation90;
++                break;
++            case 180:
++                SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientation180;
++                break;
++            case 270:
++                SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientation270;
++                break;
++            default:
++                SurfaceFlinger::primaryDisplayOrientation = DisplayState::eOrientationDefault;
++                break;
++        }
+     }
+     ALOGV("Primary Display Orientation is set to %2d.", SurfaceFlinger::primaryDisplayOrientation);
+ 
+-- 
+2.25.1
+

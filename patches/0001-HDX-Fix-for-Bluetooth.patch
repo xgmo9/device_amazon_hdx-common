@@ -1,0 +1,254 @@
+From 33465597963f2e769b8fb1e09f95364b0f03022c Mon Sep 17 00:00:00 2001
+From: Joel Bacchus <joel.bacchus@protonmail.com>
+Date: Sun, 27 Sep 2020 13:09:20 +0100
+Subject: [PATCH] HDX: Fix for Bluetooth
+
+Change-Id: I09a9c5675c2b9edf5e003fdfe82b31a36e87fd77
+---
+ device/src/controller.cc    |   4 --
+ stack/btu/btu_hcif.cc       | 108 +++---------------------------------
+ stack/hcic/hcicmds.cc       |  26 ---------
+ stack/include/btm_ble_api.h |  12 ----
+ stack/include/hcimsgs.h     |   3 -
+ 5 files changed, 9 insertions(+), 144 deletions(-)
+
+diff --git a/device/src/controller.cc b/device/src/controller.cc
+index 2cf024f9a..1480951f8 100644
+--- a/device/src/controller.cc
++++ b/device/src/controller.cc
+@@ -274,10 +274,6 @@ static future_t* start_up(void) {
+         response, &number_of_local_supported_codecs, local_supported_codecs);
+   }
+ 
+-  if (!HCI_READ_ENCR_KEY_SIZE_SUPPORTED(supported_commands)) {
+-    LOG(FATAL) << " Controller must support Read Encryption Key Size command";
+-  }
+-
+   readable = true;
+   return future_new_immediate(FUTURE_SUCCESS);
+ }
+diff --git a/stack/btu/btu_hcif.cc b/stack/btu/btu_hcif.cc
+index 720bab266..a7f299c0a 100644
+--- a/stack/btu/btu_hcif.cc
++++ b/stack/btu/btu_hcif.cc
+@@ -32,8 +32,6 @@
+ #include <base/location.h>
+ #include <base/logging.h>
+ #include <base/threading/thread.h>
+-#include <log/log.h>
+-#include <statslog.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -722,46 +720,6 @@ static void btu_hcif_rmt_name_request_comp_evt(uint8_t* p, uint16_t evt_len) {
+   btm_sec_rmt_name_request_complete(&bd_addr, p, status);
+ }
+ 
+-constexpr uint8_t MIN_KEY_SIZE = 7;
+-
+-static void read_encryption_key_size_complete_after_encryption_change(
+-    uint8_t status, uint16_t handle, uint8_t key_size) {
+-  int ret = android::util::stats_write(
+-      android::util::BLUETOOTH_CLASSIC_PAIRING_EVENT_REPORTED, "", handle,
+-      HCI_READ_ENCR_KEY_SIZE, HCI_COMMAND_COMPLETE_EVT, status, 0, key_size);
+-  if (ret < 0) {
+-    LOG(WARNING) << __func__ << ": failed to log encryption key size "
+-                 << std::to_string(key_size);
+-  }
+-
+-  if (status == HCI_ERR_INSUFFCIENT_SECURITY) {
+-    /* If remote device stop the encryption before we call "Read Encryption Key
+-     * Size", we might receive Insufficient Security, which means that link is
+-     * no longer encrypted. */
+-    LOG(INFO) << __func__ << ": encryption stopped on link: " << loghex(handle);
+-    return;
+-  }
+-
+-  if (status != HCI_SUCCESS) {
+-    LOG(INFO) << __func__ << ": disconnecting, status: " << loghex(status);
+-    btsnd_hcic_disconnect(handle, HCI_ERR_PEER_USER);
+-    return;
+-  }
+-
+-  if (key_size < MIN_KEY_SIZE) {
+-    android_errorWriteLog(0x534e4554, "124301137");
+-    LOG(ERROR) << __func__
+-               << " encryption key too short, disconnecting. handle: "
+-               << loghex(handle) << " key_size: " << +key_size;
+-
+-    btsnd_hcic_disconnect(handle, HCI_ERR_HOST_REJECT_SECURITY);
+-    return;
+-  }
+-
+-  // good key size - succeed
+-  btm_acl_encrypt_change(handle, status, 1 /* enable */);
+-  btm_sec_encrypt_change(handle, status, 1 /* enable */);
+-}
+ /*******************************************************************************
+  *
+  * Function         btu_hcif_encryption_change_evt
+@@ -780,15 +738,8 @@ static void btu_hcif_encryption_change_evt(uint8_t* p) {
+   STREAM_TO_UINT16(handle, p);
+   STREAM_TO_UINT8(encr_enable, p);
+ 
+-  if (status != HCI_SUCCESS || encr_enable == 0 ||
+-      BTM_IsBleConnection(handle)) {
+-    btm_acl_encrypt_change(handle, status, encr_enable);
+-    btm_sec_encrypt_change(handle, status, encr_enable);
+-  } else {
+-    btsnd_hcic_read_encryption_key_size(
+-        handle,
+-        base::Bind(&read_encryption_key_size_complete_after_encryption_change));
+-  }
++  btm_acl_encrypt_change(handle, status, encr_enable);
++  btm_sec_encrypt_change(handle, status, encr_enable);
+ }
+ 
+ /*******************************************************************************
+@@ -1694,62 +1645,21 @@ static void btu_hcif_enhanced_flush_complete_evt(void) {
+  * End of Simple Pairing Events
+  **********************************************/
+ 
+-static void read_encryption_key_size_complete_after_key_refresh(
+-    uint8_t status, uint16_t handle, uint8_t key_size) {
+-  int ret = android::util::stats_write(
+-      android::util::BLUETOOTH_CLASSIC_PAIRING_EVENT_REPORTED, "", handle,
+-      HCI_READ_ENCR_KEY_SIZE, HCI_COMMAND_COMPLETE_EVT, status, 0, key_size);
+-  if (ret < 0) {
+-    LOG(WARNING) << __func__ << ": failed to log encryption key size "
+-                 << std::to_string(key_size);
+-  }
+-
+-  if (status == HCI_ERR_INSUFFCIENT_SECURITY) {
+-    /* If remote device stop the encryption before we call "Read Encryption Key
+-     * Size", we might receive Insufficient Security, which means that link is
+-     * no longer encrypted. */
+-    LOG(INFO) << __func__ << ": encryption stopped on link: " << loghex(handle);
+-    return;
+-  }
+-
+-  if (status != HCI_SUCCESS) {
+-    LOG(INFO) << __func__ << ": disconnecting, status: " << loghex(status);
+-    btsnd_hcic_disconnect(handle, HCI_ERR_PEER_USER);
+-    return;
+-  }
+-
+-  if (key_size < MIN_KEY_SIZE) {
+-    android_errorWriteLog(0x534e4554, "124301137");
+-    LOG(ERROR) << __func__
+-               << " encryption key too short, disconnecting. handle: "
+-               << loghex(handle) << " key_size: " << +key_size;
+-
+-    btsnd_hcic_disconnect(handle, HCI_ERR_HOST_REJECT_SECURITY);
+-    return;
+-  }
+-
+-  btm_sec_encrypt_change(handle, status, 1 /* enc_enable */);
+-}
+-
++/**********************************************
++ * BLE Events
++ **********************************************/
+ static void btu_hcif_encryption_key_refresh_cmpl_evt(uint8_t* p) {
+   uint8_t status;
++  uint8_t enc_enable = 0;
+   uint16_t handle;
+ 
+   STREAM_TO_UINT8(status, p);
+   STREAM_TO_UINT16(handle, p);
+ 
+-  if (status != HCI_SUCCESS || BTM_IsBleConnection(handle)) {
+-    btm_sec_encrypt_change(handle, status, (status == HCI_SUCCESS) ? 1 : 0);
+-  } else {
+-    btsnd_hcic_read_encryption_key_size(
+-        handle,
+-        base::Bind(&read_encryption_key_size_complete_after_key_refresh));
+-  }
+-}
++  if (status == HCI_SUCCESS) enc_enable = 1;
+ 
+-/**********************************************
+- * BLE Events
+- **********************************************/
++  btm_sec_encrypt_change(handle, status, enc_enable);
++}
+ 
+ static void btu_ble_ll_conn_complete_evt(uint8_t* p, uint16_t evt_len) {
+   btm_ble_conn_complete(p, evt_len, false);
+diff --git a/stack/hcic/hcicmds.cc b/stack/hcic/hcicmds.cc
+index 0778afc1b..56ff381f1 100644
+--- a/stack/hcic/hcicmds.cc
++++ b/stack/hcic/hcicmds.cc
+@@ -1311,32 +1311,6 @@ void btsnd_hcic_read_rssi(uint16_t handle) {
+   btu_hcif_send_cmd(LOCAL_BR_EDR_CONTROLLER_ID, p);
+ }
+ 
+-static void read_encryption_key_size_complete(
+-    ReadEncKeySizeCb cb, uint8_t* return_parameters,
+-    uint16_t return_parameters_length) {
+-  uint8_t status;
+-  uint16_t handle;
+-  uint8_t key_size;
+-  STREAM_TO_UINT8(status, return_parameters);
+-  STREAM_TO_UINT16(handle, return_parameters);
+-  STREAM_TO_UINT8(key_size, return_parameters);
+-
+-  std::move(cb).Run(status, handle, key_size);
+-}
+-
+-void btsnd_hcic_read_encryption_key_size(uint16_t handle, ReadEncKeySizeCb cb) {
+-  constexpr uint8_t len = 2;
+-  uint8_t param[len];
+-  memset(param, 0, len);
+-
+-  uint8_t* p = param;
+-  UINT16_TO_STREAM(p, handle);
+-
+-  btu_hcif_send_cmd_with_cb(
+-      FROM_HERE, HCI_READ_ENCR_KEY_SIZE, param, len,
+-      base::Bind(&read_encryption_key_size_complete, base::Passed(&cb)));
+-}
+-
+ void btsnd_hcic_read_failed_contact_counter(uint16_t handle) {
+   BT_HDR* p = (BT_HDR*)osi_malloc(HCI_CMD_BUF_SIZE);
+   uint8_t* pp = (uint8_t*)(p + 1);
+diff --git a/stack/include/btm_ble_api.h b/stack/include/btm_ble_api.h
+index c8ffa5e46..f0fb9e62a 100644
+--- a/stack/include/btm_ble_api.h
++++ b/stack/include/btm_ble_api.h
+@@ -364,18 +364,6 @@ extern void BTM_ReadConnectionAddr(const RawAddress& remote_bda,
+                                    RawAddress& local_conn_addr,
+                                    tBLE_ADDR_TYPE* p_addr_type);
+ 
+-/*******************************************************************************
+- *
+- * Function         BTM_IsBleConnection
+- *
+- * Description      This function is called to check if the connection handle
+- *                  for an LE link
+- *
+- * Returns          true if connection is LE link, otherwise false.
+- *
+- ******************************************************************************/
+-extern bool BTM_IsBleConnection(uint16_t conn_handle);
+-
+ /*******************************************************************************
+  *
+  * Function         BTM_ReadRemoteConnectionAddr
+diff --git a/stack/include/hcimsgs.h b/stack/include/hcimsgs.h
+index 63ea8f49f..a9097510f 100644
+--- a/stack/include/hcimsgs.h
++++ b/stack/include/hcimsgs.h
+@@ -612,9 +612,6 @@ extern void btsnd_hcic_write_cur_iac_lap(
+ 
+ extern void btsnd_hcic_get_link_quality(uint16_t handle); /* Get Link Quality */
+ extern void btsnd_hcic_read_rssi(uint16_t handle);        /* Read RSSI */
+-using ReadEncKeySizeCb = base::OnceCallback<void(uint8_t, uint16_t, uint8_t)>;
+-extern void btsnd_hcic_read_encryption_key_size(uint16_t handle,
+-                                                ReadEncKeySizeCb cb);
+ extern void btsnd_hcic_read_failed_contact_counter(uint16_t handle);
+ extern void btsnd_hcic_read_automatic_flush_timeout(uint16_t handle);
+ extern void btsnd_hcic_enable_test_mode(
+-- 
+2.25.1
+
