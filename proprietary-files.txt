@@ -386,6 +386,5 @@ bin/ath6kl-service:vendor/bin/ath6kl-service
 # WiFi firmware
 etc/firmware/ar3k/1020201/PS_ASIC.pst:vendor/firmware/ar3k/1020201/PS_ASIC.pst
 etc/firmware/ar3k/1020201/RamPatch.txt:vendor/firmware/ar3k/1020201/RamPatch.txt
-etc/firmware/ath6k/AR6004/hw1.3/bdata.bin:vendor/firmware/ath6k/AR6004/hw1.3/bdata.bin
-etc/firmware/ath6k/AR6004/hw1.3/fw.ram.bin:vendor/firmware/ath6k/AR6004/hw1.3/fw.ram.bin
-etc/firmware/ath6k/AR6004/hw3.0/fw.ram.bin:vendor/firmware/ath6k/AR6004/hw3.0/fw.ram.bin
+
+

@@ -194,11 +194,19 @@ PRODUCT_PACKAGES += \
     libwpa_client \
 	wificond
 
+# WiFi Firmware
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/wifi/bdata.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/ath6k/AR6004/hw3.0/bdata.bin \
+	$(LOCAL_PATH)/wifi/fw.ram.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/ath6k/AR6004/hw3.0/fw.ram.bin
+
 # WiFi Config
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-	$(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-	$(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+	$(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+	$(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+	$(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+	$(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat
+
+
 
 # Misc dependencies
 PRODUCT_PACKAGES += \
