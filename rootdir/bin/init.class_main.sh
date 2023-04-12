@@ -31,7 +31,6 @@
 #
 baseband=`getprop ro.baseband`
 sgltecsfb=`getprop persist.radio.sglte_csfb`
-datamode=`getprop persist.data.mode`
 
 #
 # We have an external modem, so the following doesn't apply:
@@ -79,13 +78,4 @@ case "$baseband" in
         start ril-daemon2
     fi
 
-    case "$datamode" in
-        "tethered")
-            start qti
-            start port-bridge
-            ;;
-        *)
-            start netmgrd
-            ;;
-    esac
 esac
