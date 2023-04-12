@@ -37,6 +37,7 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := zImage
 
 # Kernel config
+TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/amazon/hdx-common
 TARGET_KERNEL_CONFIG := hdx-common_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
@@ -47,7 +48,6 @@ TARGET_KERNEL_ADDITIONAL_CONFIG:= debug_defconfig
 endif
 
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
-KERNEL_TOOLCHAIN := /mnt/data/lineage/lineage-16.0/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)4.9/bin
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
